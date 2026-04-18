@@ -1,0 +1,151 @@
+/* RESET STYLES: Clears browser defaults so everything looks consistent */
+* {
+    margin: 0; /* Removes default outside spacing */
+    padding: 0; /* Removes default inside spacing */
+    box-sizing: border-box; /* Includes padding and border in the element's total width/height */
+}
+
+/* CSS VARIABLES: Reusable values for easy maintenance */
+:root {
+    --primary-red: #e10600; /* Main brand color */
+    --dark-black: #0a0a0a; /* Background color */
+    --soft-black: #111111; /* Secondary background color */
+    --light-gray: #cccccc; /* Text color for less important info */
+    --white: #ffffff; /* Main text color */
+    --transition-speed: 0.3s ease; /* Default speed for hover animations */
+    --section-padding-v: clamp(60px, 10vh, 120px); /* Vertical padding that scales with screen size */
+}
+
+/* SMOOTH SCROLL: Makes the page slide smoothly when clicking nav links */
+html {
+    scroll-behavior: smooth;
+}
+
+/* BODY: Global typography and background */
+body {
+    font-family: 'Segoe UI', sans-serif; /* Clean modern font */
+    background: var(--dark-black); /* Sets the dark theme */
+    color: var(--white); /* Sets default text to white */
+}
+
+/* HEADER: The navigation bar at the top */
+header {
+    display: flex; /* Lines up logo and nav side-by-side */
+    justify-content: space-between; /* Pushes logo to left, nav to right */
+    padding: 20px 60px; /* Spacing inside the header */
+    position: fixed; /* Keeps the header at the top while scrolling */
+    width: 100%; /* Ensures header spans the full width */
+    background: rgba(0,0,0,0.85); /* Semi-transparent black background */
+    border-bottom: 1px solid #222; /* Subtle line at the bottom */
+    z-index: 1000; /* Ensures header stays on top of other content */
+}
+
+/* LOGO STYLES */
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+    color: var(--white);
+    letter-spacing: 2px; /* Adds space between letters */
+}
+
+/* NAV LIST: Horizontal layout for links */
+nav ul {
+    display: flex;
+    list-style: none; /* Removes bullet points */
+}
+
+/* NAV LINKS SPACING */
+nav ul li {
+    margin-left: 30px; /* Gap between menu items */
+}
+
+/* NAV LINKS: Base styling and transitions */
+nav a {
+    display: inline-block; /* Allows transform: translateY to work */
+    color: var(--light-gray);
+    text-decoration: none; /* Removes underline */
+    font-size: 14px;
+    letter-spacing: 1px;
+    transition: color var(--transition-speed), transform var(--transition-speed); /* Animates hover changes */
+}
+
+/* NAV LINK HOVER EFFECT */
+nav a:hover {
+    color: var(--primary-red); /* Changes color on hover */
+    transform: translateY(-2px); /* Slightly lifts the text */
+}
+
+/* ACCESSIBILITY: Visible outline for keyboard users */
+nav a:focus-visible {
+    outline: 2px solid var(--primary-red);
+    outline-offset: 4px;
+}
+
+/* SECTION SCROLL ADJUSTMENT: Prevents header from covering section titles */
+section {
+    scroll-margin-top: 70px;
+}
+
+/* HERO SECTION: The big intro area */
+.hero {
+    height: 100vh; /* Full screen height */
+    background:
+        linear-gradient(120deg, rgba(0,0,0,0.9), rgba(0,0,0,0.3)), /* Diagonal dark overlay (top-left to bottom-right) for text readability */
+        url('audi-f1-concept-2022-front-quarter.webp') no-repeat center/cover; /* Background image behavior */
+    display: flex;
+    align-items: center; /* Centers content vertically */
+    padding: 0 80px;
+}
+
+/* HERO TEXT CONTAINER */
+.hero-content {
+    max-width: 600px; /* Prevents text from stretching too wide */
+}
+
+/* HERO TITLE: Fluid typography */
+.hero h1 {
+    font-size: clamp(36px, 8vw, 60px); /* Scales between 36px and 60px based on width */
+    font-weight: 800;
+    line-height: 1.1; /* Tighter spacing for large titles */
+}
+
+/* HERO SUBTEXT */
+.hero p {
+    margin: 20px 0;
+    color: var(--light-gray);
+}
+
+/* BUTTON STYLES */
+.btn {
+    display: inline-block;/* makes it behave like text, but still allows padding,width/height control */
+    padding: 12px 28px;/* changes button sizes also*/
+    background: var(--primary-red);
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border: none;
+    transition: var(--transition-speed);
+}
+
+/* BUTTON HOVER EFFECT */
+.btn:hover {
+    background: white;
+    color: black;
+}
+
+/* BUTTON KEYBOARD FOCUS */
+.btn:focus-visible {
+    outline: 3px solid white;
+    outline-offset: 2px;
+}
+
+
+/* FOOTER STYLES */
+footer {
+    background: black;
+    text-align: center;
+    padding: 25px;
+    font-size: 14px;
+    color: #777; /* Subtle text color for the copyright info */
+}
