@@ -1,0 +1,193 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ROOT COLORS */
+:root {
+    --primary-red: #e10600;
+    --dark-black: #0a0a0a;
+    --soft-black: #111111;
+    --light-gray: #cccccc;
+    --white: #ffffff;
+}
+
+/* SMOOTH SCROLL */
+html {
+    scroll-behavior: smooth;
+}
+
+/* BODY */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: var(--dark-black);
+    color: var(--white);
+}
+
+/* NAVBAR */
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 60px;
+    position: fixed;
+    width: 100%;
+    background: rgba(0,0,0,0.85);
+    border-bottom: 1px solid #222;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+    color: var(--white);
+    letter-spacing: 2px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 30px;
+}
+
+nav a {
+    color: var(--light-gray);
+    text-decoration: none;
+    font-size: 14px;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: var(--primary-red);
+}
+
+/* HERO */
+.hero {
+    height: 100vh;
+    background:
+        linear-gradient(120deg, rgba(0,0,0,0.9), rgba(0,0,0,0.6)),
+        url('your-image.jpg') no-repeat center/cover;
+    display: flex;
+    align-items: center;
+    padding: 0 80px;
+}
+
+.hero-content {
+    max-width: 600px;
+}
+
+.hero h1 {
+    font-size: 60px;
+    font-weight: 800;
+    line-height: 1.1;
+}
+
+.hero p {
+    margin: 20px 0;
+    color: var(--light-gray);
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 28px;
+    background: var(--primary-red);
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border: none;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: white;
+    color: black;
+}
+
+/* SECTIONS */
+.section {
+    padding: 120px 80px;
+}
+
+.section h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+/* RED UNDERLINE EFFECT */
+.section h2::after {
+    content: "";
+    width: 60px;
+    height: 3px;
+    background: var(--primary-red);
+    display: block;
+    margin-top: 10px;
+}
+
+/* DARK SECTION ALT */
+.dark {
+    background: var(--soft-black);
+}
+
+/* GRID */
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    margin-top: 40px;
+}
+
+/* CARDS */
+.card {
+    flex: 1 1 250px;
+    height: 180px;
+    background: #151515;
+    border: 1px solid #222;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: 0.3s;
+    position: relative;
+}
+
+/* HOVER RED EDGE */
+.card:hover {
+    transform: translateY(-8px);
+    border-color: var(--primary-red);
+}
+
+/* OPTIONAL IMAGE STYLE */
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* SPONSORS */
+#sponsors .card {
+    height: 120px;
+    background: #fff;
+    color: black;
+}
+
+/* CONTACT */
+#contact p {
+    margin: 10px 0;
+    color: var(--light-gray);
+}
+
+/* FOOTER */
+footer {
+    background: black;
+    text-align: center;
+    padding: 25px;
+    font-size: 14px;
+    color: #777;
+}
