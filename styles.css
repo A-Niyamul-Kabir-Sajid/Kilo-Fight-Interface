@@ -140,6 +140,36 @@ section {
     outline-offset: 2px;
 }
 
+/* GENERIC SECTION STYLING */
+.section {
+    padding: var(--section-padding-v) clamp(20px, 5vw, 80px); /* Responsive padding */
+}
+
+/* RED UNDERLINE: Decorative line under section titles */
+.section h2::after {
+    content: ""; /* Required for pseudo-elements */
+    /* width: 60px; */
+    height: 3px;
+    background: var(--primary-red);
+    display: block;
+    margin-top: 10px;
+}
+
+.section h2::after {
+    width: 0;
+    transition: width 0.4s ease;
+}
+
+.section:hover h2::after {
+    width: 60px;
+}
+
+/* ALTERNATIVE DARK BACKGROUND FOR SECTIONS */
+.dark {
+    background: var(--soft-black);
+}
+
+
 
 /* FOOTER STYLES */
 footer {
