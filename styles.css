@@ -140,9 +140,44 @@ section {
     outline-offset: 2px;
 }
 
+
+
 /* GENERIC SECTION STYLING */
 .section {
     padding: var(--section-padding-v) clamp(20px, 5vw, 80px); /* Responsive padding */
+}
+
+/* .section:not(:last-child) {
+    margin-bottom: 80px;
+    border-bottom: 10px solid #2e0000; /* Subtle line between sections 
+} */
+
+.section:not(:last-child) {
+    position: relative;
+}
+
+.section:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    bottom: -40px;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    /* background: linear-gradient(to left, transparent, #320000); */
+    background: solid #320000;
+    pointer-events: none;
+}
+
+/* .section:not(:last-child)::after {
+    content: "";
+    display: block;
+    height: 20px;
+    background: linear-gradient(to left, transparent, rgb(53, 1, 1));
+} */
+ img   {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Prevents image distortion */
 }
 
 /* SECTION TITLE */
@@ -239,14 +274,24 @@ section {
     animation: scroll-left 18s linear infinite; /* Auto-scrolls left */
 }
 
-#team:hover .grid {
-    animation-duration: 6s; /* Speeds up on hover */
-}
+/* #team:hover .grid {
+    animation-duration: 6s; /* Speeds up on hover 
+} */
 
 #team .card,
 #team .card:hover {
-    flex: 0 0 250px; /* Fixed width for team cards */
+    flex: 0 0 auto; /* Let team cards size to their content */
+    width: auto;
+    height: auto;
     transform: none; /* Disables the lift effect during scroll */
+}
+
+#team .card img {
+    width: auto;
+    height: auto;
+    max-width: 280px;
+    max-height: 280px;
+    display: block;
 }
 
 /* ── PROJECTS SECTION ───────────────────────────────── */
@@ -269,20 +314,42 @@ section {
     animation: scroll-left 22s linear infinite; /* Slightly slower than team */
 }
 
-#projects:hover .grid {
+/* #projects:hover .grid {
     animation-duration: 7s;
-}
+} */
 
 #projects .card,
 #projects .card:hover {
-    flex: 0 0 250px;
+    flex: 0 0 auto; /* Let project cards size to their image width */
+    width: auto;
+    height: auto;
     transform: none;
+}
+
+#projects .card {
+    flex-direction: column;
+    align-items: center;
+    padding: 16px;
+}
+
+#projects .card img {
+    width: auto;
+    height: auto;
+    max-width: 280px;
+    display: block;
+}
+
+#projects .card .card-label {
+    margin-top: 14px;
+    color: var(--white);
+    font-size: 14px;
+    letter-spacing: 0.8px;
 }
 
 /* FIX: Give team and project cards a fixed width so they don't stretch */
 #team .card,
 #projects .card {
-    flex: 0 0 250px; /* Fixed 250px — no growing or shrinking */
+    flex: 0 0 auto; /* Let cards size based on their content */
 }
 
 /* ── SHARED KEYFRAME ────────────────────────────────── */
@@ -292,9 +359,27 @@ section {
     100% { transform: translateX(-50%); } /* -50% works because cards are duplicated */
 }
 
+
+#sponsors .card img {
+    width: auto;
+    height: auto;
+    max-width: 280px;
+    display: block;
+}
+
 /* CONTACT INFO STYLES */
 #contact p {
     margin: 10px 0;
+    color: var(--white);
+}
+
+#contact a {
+    color: var(--primary-red);
+    text-decoration: none;
+    transition: color var(--transition-speed);
+}
+
+#contact a:hover {
     color: var(--light-gray);
 }
 
