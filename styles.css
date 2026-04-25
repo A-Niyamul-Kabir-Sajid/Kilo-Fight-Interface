@@ -145,6 +145,13 @@ section {
     padding: var(--section-padding-v) clamp(20px, 5vw, 80px); /* Responsive padding */
 }
 
+/* SECTION TITLE */
+.section h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
 /* RED UNDERLINE: Decorative line under section titles */
 .section h2::after {
     content: ""; /* Required for pseudo-elements */
@@ -154,6 +161,7 @@ section {
     display: block;
     margin-top: 10px;
 }
+
 
 .section h2::after {
     width: 0;
@@ -169,7 +177,53 @@ section {
     background: var(--soft-black);
 }
 
+/* GRID SYSTEM: Layout for cards */
+.grid {
+    display: flex;
+    flex-wrap: wrap; /* Allows items to wrap to the next line on mobile */
+    gap: 25px; /* Space between grid items */
+    margin-top: 40px;
+}
 
+/* CARD STYLES */
+.card {
+    flex: 1 1 250px; /* Allows cards to grow/shrink, starting at 250px */
+    height: 180px;
+    background: #151515;
+    border: 1px solid #222;
+    display: flex;/*you write display: flex when you want a container to control how its children are laid out, aligned, and spaced in a flexible way*/
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: var(--transition-speed);
+    position: relative;
+}
+
+/* CARD HOVER EFFECT */
+.card:hover {
+    transform: translateY(-8px); /* Lifts the card */
+    border-color: var(--primary-red); /* Highlights the border in red */
+}
+
+/* CARD IMAGES */
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Prevents image distortion */
+}
+
+/* SPONSORS OVERRIDE: Specific styling for sponsor section */
+#sponsors .card {
+    height: 120px;
+    background: #fff;
+    color: black;
+}
+
+/* CONTACT INFO STYLES */
+#contact p {
+    margin: 10px 0;
+    color: var(--light-gray);
+}
 
 /* FOOTER STYLES */
 footer {
