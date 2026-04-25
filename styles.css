@@ -219,6 +219,79 @@ section {
     color: black;
 }
 
+/* ── TEAM SECTION ───────────────────────────────────── */
+
+#team {
+    overflow: hidden; /* Clips cards that scroll out of view */
+    padding-left: 0;   /* Remove side padding so grid can scroll freely */
+    padding-right: 0;
+}
+
+#team h2 {
+    padding-left: clamp(20px, 5vw, 80px); /* Give the heading its own side padding */
+}
+
+#team .grid {
+    flex-wrap: nowrap !important; /* Force single row — overrides global .grid */ /* Forces all cards into a single row */
+    width: max-content; /* Row grows as wide as all cards combined */
+    gap: 25px;
+    margin-top: 40px;
+    animation: scroll-left 18s linear infinite; /* Auto-scrolls left */
+}
+
+#team:hover .grid {
+    animation-duration: 6s; /* Speeds up on hover */
+}
+
+#team .card,
+#team .card:hover {
+    flex: 0 0 250px; /* Fixed width for team cards */
+    transform: none; /* Disables the lift effect during scroll */
+}
+
+/* ── PROJECTS SECTION ───────────────────────────────── */
+
+#projects {
+    overflow: hidden; /* Clips cards that scroll out of view */
+     padding-left: 0;
+    padding-right: 0;
+}
+
+#projects h2 {
+    padding-left: clamp(20px, 5vw, 80px);
+}
+
+#projects .grid {
+    flex-wrap: nowrap !important; /* Force single row — overrides global .grid */
+    width: max-content;
+     gap: 25px;
+    margin-top: 40px;
+    animation: scroll-left 22s linear infinite; /* Slightly slower than team */
+}
+
+#projects:hover .grid {
+    animation-duration: 7s;
+}
+
+#projects .card,
+#projects .card:hover {
+    flex: 0 0 250px;
+    transform: none;
+}
+
+/* FIX: Give team and project cards a fixed width so they don't stretch */
+#team .card,
+#projects .card {
+    flex: 0 0 250px; /* Fixed 250px — no growing or shrinking */
+}
+
+/* ── SHARED KEYFRAME ────────────────────────────────── */
+
+@keyframes scroll-left {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); } /* -50% works because cards are duplicated */
+}
+
 /* CONTACT INFO STYLES */
 #contact p {
     margin: 10px 0;
