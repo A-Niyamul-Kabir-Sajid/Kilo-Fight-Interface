@@ -1,3 +1,4 @@
+<?php require __DIR__ . '/includes/bootstrap.php'; ?>
 <?php include 'includes/header.php'; ?>
 
 <?php include 'sections/hero.php'; ?>

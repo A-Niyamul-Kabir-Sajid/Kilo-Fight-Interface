@@ -8,8 +8,8 @@ $link = $link ?? "#";
 
     <div class="photo-card-image">
 
-        <?php if (!empty($image) && file_exists($image)): ?>
-
+        <!-- <?php //if (!empty($image) && file_exists($image)): ?> -->
+        <?php if (!empty($image)): ?>
             <img
                 src="<?= htmlspecialchars($image) ?>"
                 alt="<?= htmlspecialchars($name) ?>"

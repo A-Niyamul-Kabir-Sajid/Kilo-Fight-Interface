@@ -1,6 +1,10 @@
 <?php
 
 session_start();
+// turn auto complete off
+// header("Cache-Control: no-store, no-cache, must-revalidate");
+// header("Pragma: no-cache");
+// header("Expires: 0");
 
 $pdo = require __DIR__ . '/../includes/db.php';
 $config = require __DIR__ . '/../includes/config.php';
@@ -53,11 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <h2>Admin Login</h2>
 
-    <!-- <?php if ($message): ?>
-        <p style="color:#e10600;">
-            <?= htmlspecialchars($message) ?>
-        </p>
-    <?php endif; ?> -->
+    
     <?php
       if ($message) {
           echo '<p style="color:#e10600;">';
@@ -66,7 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       }
     ?>
 
-    <form method="post" style="max-width:360px; margin-top:24px;">
+    <form method="post" autocomplete="off" style="max-width:360px; margin-top:24px;">
 
         <label for="username">Username</label>
 
@@ -74,6 +74,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             id="username"
             name="username"
             type="text"
+            
             required
             oninvalid="this.setCustomValidity('Please enter your username.')"
             oninput="this.setCustomValidity('')"
@@ -86,6 +87,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             id="password"
             name="password"
             type="password"
+            
             required
             oninvalid="this.setCustomValidity('Please enter your password.')"
             oninput="this.setCustomValidity('')"

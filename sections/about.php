@@ -1,11 +1,31 @@
 <section id="about" class="section">
-        <img src="assets/images/About US .jpg" alt="About KILO FLIGHT">
 
-        <h2>About Us</h2>
+    <?php
+    $aboutImage = getSetting($pdo, 'about_image');
+    ?>
 
-        <p>
-            KILO FLIGHT is the Formula Student team of KUET.
-            We design, build, and compete with high-performance race cars
-            while advancing electric and autonomous vehicle technology.
-        </p>
-    </section>
+    <?php if (!empty($aboutImage)): ?>
+
+        <img
+            src="<?= htmlspecialchars($aboutImage) ?>"
+            alt="About KILO FLIGHT"
+           
+        >
+
+    <?php endif; ?>
+
+    <h2>
+        <?= htmlspecialchars(
+            getSetting($pdo, 'about_title')
+        ) ?>
+    </h2>
+
+    <p>
+        <?= nl2br(
+            htmlspecialchars(
+                getSetting($pdo, 'about_content')
+            )
+        ) ?>
+    </p>
+
+</section>

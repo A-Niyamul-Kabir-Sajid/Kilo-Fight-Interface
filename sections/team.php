@@ -1,29 +1,38 @@
-<section id="team" class="section dark">
-        <h2>Our Team</h2>
+<?php
 
-        <div class="grid">
-            <div class="card">
-                <img src="assets/images/SUDIPTO HALDER.jpg" alt="SUDIPTO HALDER">
-            </div>
+$pdo = require __DIR__ . '/../includes/db.php';
 
-            <div class="card">
-                <img src="assets/images/ABUDLLAH AL USAMA.jpg" alt="ABUDLLAH AL USAMA">
-            </div>
+$stmt = $pdo->query(
+    "SELECT *
+     FROM team_members
+     ORDER BY display_order ASC, id ASC"
+);
 
-            <div class="card">
-                <img src="assets/images/GAZI FAYSAL JUBAYER.jpg" alt="GAZI FAYSAL JUBAYER">
-            </div>
+$members = $stmt->fetchAll();
 
-            <div class="card">
-                <img src="assets/images/BISHWAJIT PAUL.jpg" alt="BISHWAJIT PAUL">
-            </div>
+?>
 
-            <div class="card">
-                <img src="assets/images/TASHNUBHA TANZIM.jpg" alt="TASHNUBHA TANZIM">
-            </div>
+<<section id="team" class="section dark">
 
-            <div class="card">
-                <img src="assets/images/HAMIM BIN SAJED.jpg" alt="HAMIM BIN SAJED">
-            </div>
-        </div>
-    </section>
+    <h2>Our Team</h2>
+
+    <div class="team-slider">
+
+        <?php foreach ($members as $member): ?>
+
+            <?php
+
+            $name = $member['name'];
+            $image = $member['photo'];
+            $link = '#';
+
+            include __DIR__ . '/../includes/photo-card.php';
+
+            ?>
+
+        <?php endforeach; ?>
+
+    </div>
+
+</section>
+<script src="assets/js/team-slider.js"></script>

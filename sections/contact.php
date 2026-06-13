@@ -1,23 +1,77 @@
-<section id="contact" class="section">
-        <h2>Contact Us</h2>
+<section id="contact" class="section contact-section">
 
-        <p>Email:
-            <a href="mailto:info@kiloflight.com">
-                info@kiloflight.com
-            </a>
+    <div class="contact-header">
+
+        <h2>
+            <?= htmlspecialchars(
+                getSetting($pdo, 'contact_title')
+            ) ?>
+        </h2>
+
+        <p>
+            <?= nl2br(
+                htmlspecialchars(
+                    getSetting($pdo, 'contact_intro')
+                )
+            ) ?>
         </p>
 
-        <p>Facebook:
-            <a href="https://www.facebook.com/teamkiloflightkuet" target="_blank">
+    </div>
+
+    <div class="contact-grid">
+
+        <div class="contact-card">
+
+            <h3>Email</h3>
+
+            <a href="mailto:<?= htmlspecialchars(getSetting($pdo, 'contact_email')) ?>">
+                <?= htmlspecialchars(getSetting($pdo, 'contact_email')) ?>
+            </a>
+
+        </div>
+
+        <div class="contact-card">
+
+            <h3>Facebook</h3>
+
+            <a
+                href="<?= htmlspecialchars(getSetting($pdo, 'contact_facebook')) ?>"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
                 Team Kilo Flight
             </a>
-        </p>
 
-        <p>LinkedIn:
-            <a href="https://www.linkedin.com/company/kiloflight/posts/?feedView=all" target="_blank">
+        </div>
+
+        <div class="contact-card">
+
+            <h3>LinkedIn</h3>
+
+            <a
+                href="<?= htmlspecialchars(getSetting($pdo, 'contact_linkedin')) ?>"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
                 KILO FLIGHT
             </a>
-        </p>
 
-        <p>Location: KUET, Khulna, Bangladesh</p>
-    </section>
+        </div>
+
+        <div class="contact-card">
+
+            <h3>Location</h3>
+
+            <p>
+                <?= nl2br(
+                    htmlspecialchars(
+                        getSetting($pdo, 'contact_location')
+                    )
+                ) ?>
+            </p>
+
+        </div>
+
+    </div>
+
+</section>

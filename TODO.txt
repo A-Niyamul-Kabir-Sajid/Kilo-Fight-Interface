@@ -1,0 +1,3 @@
+1. make a db table for all the information which will be editable form database
+2. make a inquiry form what will be added to the database
+   admin will be able to reply from the database
