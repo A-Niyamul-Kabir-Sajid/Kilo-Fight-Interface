@@ -40,6 +40,7 @@ $members = $stmt->fetchAll();
     <a
         class="btn"
         href="<?= $config['base_url'] ?>admin/dashboard.php"
+        style="background:#555555; color:white; text-decoration:none;"
     >
         Dashboard
     </a>
@@ -53,6 +54,7 @@ $members = $stmt->fetchAll();
         <a
             class="btn"
             href="<?= $config['base_url'] ?>admin/add-member.php"
+            style="background:#4da6ff; color:white; padding:8px 16px; text-decoration:none;"
         >
             + Add Member
         </a>

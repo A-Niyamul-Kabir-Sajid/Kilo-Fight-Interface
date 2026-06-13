@@ -26,7 +26,14 @@ $galleryCount = $pdo->query(
 $settingsCount = $pdo->query(
     "SELECT COUNT(*) FROM site_settings"
 )->fetchColumn();
-
+// $inquiryCount = $pdo->query(
+//     "SELECT COUNT(*) FROM inquiries"
+// )->fetchColumn();
+$newInquiryCount = $pdo->query(
+    "SELECT COUNT(*)
+     FROM inquiries
+     WHERE status = 'new'"
+)->fetchColumn();
 
 ?>
 <!doctype html>
@@ -43,7 +50,6 @@ $settingsCount = $pdo->query(
 <header class="admin-header">
     <div>
         <h1>KILO FLIGHT Admin</h1>
-
         <p>
             Welcome,
             <strong><?= htmlspecialchars($user['username']) ?></strong>
@@ -51,13 +57,25 @@ $settingsCount = $pdo->query(
         </p>
     </div>
 
-    <a
-        class="btn logout-btn"
-        href="<?= $config['base_url'] ?>admin/logout.php"
-    >
-        Logout
-    </a>
+    <div style="margin-left:auto; display:flex; align-items:center;">
+        <a
+            class="btn"
+            href="<?= $config['base_url'] ?>admin/inquiries.php"
+            style="background:#4da6ff; color:white; padding:8px 16px; margin-right:10px; text-decoration:none;"
+        >
+            Inbox (<?= $newInquiryCount ?>)
+        </a>
+
+        <a
+            class="btn logout-btn"
+            href="<?= $config['base_url'] ?>admin/logout.php"
+            style="background:#e10600; color:white; padding:8px 16px; text-decoration:none;"
+        >
+            Logout
+        </a>
+    </div>
 </header>
+
 
 <main class="admin-dashboard">
 
@@ -112,6 +130,7 @@ $settingsCount = $pdo->query(
 
         <p>Manage photos and media.</p>
     </a>
+
     <a
         class="admin-card"
         href="<?= $config['base_url'] ?>admin/site-settings.php"
@@ -126,6 +145,7 @@ $settingsCount = $pdo->query(
             Manage Hero, About, Contact and website content.
         </p>
     </a>
+
 
 </main>
 

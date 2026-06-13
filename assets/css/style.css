@@ -267,7 +267,7 @@ img {
 }
 
 .contact-card a {
-    color: var(--soft-black); /* default link color */
+    color: var(rgb(89, 203, 241)); /* default link color */
     text-decoration: none;
     transition: transform var(--transition-speed), 
                 color var(--transition-speed);
@@ -503,4 +503,77 @@ footer {
 
 .photo-card{
     flex:0 0 auto;
+}
+
+/* =========================
+   CONTACT LAYOUT
+========================= */
+
+.contact-layout{
+    display:grid;
+
+    grid-template-columns:
+        1.2fr 0.8fr;
+
+    gap:40px;
+
+    margin-top:40px;
+}
+
+.contact-form-card{
+    background:#111;
+
+    border:1px solid #222;
+    border-radius:16px;
+
+    padding:24px;
+}
+
+.contact-form-card h3{
+    margin-bottom:20px;
+}
+
+.contact-form-card form{
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+}
+
+.contact-form-card input,
+.contact-form-card textarea{
+    width:100%;
+
+    padding:14px 16px;
+
+    border:1px solid #333;
+    border-radius:8px;
+
+    background:#0a0a0a;
+    color:#fff;
+
+    font-size:1rem;
+}
+
+.contact-form-card textarea{
+    resize:vertical;
+    min-height:160px;
+}
+
+@media (max-width: 900px){
+
+    .contact-layout{
+        grid-template-columns:1fr;
+    }
+
+}
+
+.actions-column select,
+td select{
+    background:#111;
+    color:#fff;
+
+    border:1px solid #333;
+    border-radius:6px;
+
+    padding:6px 10px;
 }

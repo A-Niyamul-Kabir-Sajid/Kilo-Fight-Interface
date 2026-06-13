@@ -66,3 +66,36 @@ CREATE TABLE IF NOT EXISTS gallery_items (
     display_order INT DEFAULT 0,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+CREATE TABLE IF NOT EXISTS inquiries (
+
+    id INT AUTO_INCREMENT PRIMARY KEY,
+
+    contact_info VARCHAR(255) NOT NULL,
+
+    question TEXT NOT NULL,
+    status ENUM(
+    'new',
+    'read',
+    'replied'
+    ) DEFAULT 'new',
+
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+
+);
+
+CREATE TABLE IF NOT EXISTS site_settings (
+
+    id INT AUTO_INCREMENT PRIMARY KEY,
+
+    setting_key VARCHAR(100) NOT NULL UNIQUE,
+
+    setting_value TEXT,
+
+    setting_type ENUM(
+        'text',
+        'textarea',
+        'url',
+        'image'
+    ) DEFAULT 'text'
+);

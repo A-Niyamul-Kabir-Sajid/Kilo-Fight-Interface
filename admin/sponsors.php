@@ -35,7 +35,9 @@ $sponsors = $stmt->fetchAll();
     </div>
 
     <a class="btn"
-       href="<?= $config['base_url'] ?>admin/dashboard.php">
+       href="<?= $config['base_url'] ?>admin/dashboard.php"
+       style="background:#555555; color:white; text-decoration:none;"
+    >
         Dashboard
     </a>
 
@@ -48,7 +50,9 @@ $sponsors = $stmt->fetchAll();
         <h2>Sponsors List</h2>
 
         <a class="btn"
-           href="<?= $config['base_url'] ?>admin/add-sponsor.php">
+           href="<?= $config['base_url'] ?>admin/add-sponsor.php"
+           style="background:#4da6ff; color:white; padding:8px 16px; text-decoration:none;"
+        >
             + Add Sponsor
         </a>
 
