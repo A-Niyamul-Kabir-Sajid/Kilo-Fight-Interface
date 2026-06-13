@@ -1,0 +1,228 @@
+/* RESET STYLES: Clears browser defaults so everything looks consistent */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-red: #e10600;
+    --dark-black: #0a0a0a;
+    --soft-black: #111111;
+    --light-gray: #cccccc;
+    --white: #ffffff;
+    --transition-speed: 0.3s ease;
+    --section-padding-v: clamp(60px, 10vh, 120px);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: var(--dark-black);
+    color: var(--white);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 60px;
+    position: fixed;
+    width: 100%;
+    background: rgba(0,0,0,0.85);
+    border-bottom: 1px solid #222;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+    color: var(--white);
+    letter-spacing: 2px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 30px;
+}
+
+nav a {
+    display: inline-block;
+    color: var(--light-gray);
+    text-decoration: none;
+    font-size: 14px;
+    letter-spacing: 1px;
+    transition: color var(--transition-speed), transform var(--transition-speed);
+}
+
+nav a:hover {
+    color: var(--primary-red);
+    transform: translateY(-2px);
+}
+
+nav a:focus-visible {
+    outline: 2px solid var(--primary-red);
+    outline-offset: 4px;
+}
+
+section {
+    scroll-margin-top: 70px;
+}
+
+.hero {
+    min-height: 100vh;
+    background:
+        linear-gradient(120deg, rgba(0,0,0,0.9), rgba(0,0,0,0.3)),
+        url('../images/hero-bg.jpg') no-repeat center/cover;
+    display: flex;
+    align-items: center;
+    padding: 0 80px;
+}
+
+.hero-content {
+    max-width: 600px;
+}
+
+.hero h1 {
+    font-size: clamp(36px, 8vw, 60px);
+    font-weight: 800;
+    line-height: 1.1;
+}
+
+.hero p {
+    margin: 20px 0;
+    color: var(--light-gray);
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 28px;
+    background: var(--primary-red);
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border: none;
+    transition: var(--transition-speed);
+}
+
+.btn:hover {
+    background: white;
+    color: black;
+}
+
+.btn:focus-visible {
+    outline: 3px solid white;
+    outline-offset: 2px;
+}
+
+.section {
+    padding: var(--section-padding-v) clamp(20px, 5vw, 80px);
+}
+
+.section:not(:last-child) {
+    position: relative;
+}
+
+.section:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    bottom: -40px;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background: solid #320000;
+    pointer-events: none;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.section h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.section h2::after {
+    content: "";
+    height: 3px;
+    background: var(--primary-red);
+    display: block;
+    margin-top: 10px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
+    align-items: stretch;
+}
+
+.card {
+    background: #111;
+    border: 1px solid #222;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 14px 40px rgba(0,0,0,0.25);
+}
+
+.card img {
+    display: block;
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+}
+
+.card p,
+.card span {
+    padding: 16px;
+    color: var(--light-gray);
+}
+
+.dark {
+    background: #070707;
+}
+
+footer {
+    padding: 28px 60px;
+    text-align: center;
+    color: var(--light-gray);
+    border-top: 1px solid #222;
+}
+
+@media (max-width: 900px) {
+    header {
+        flex-wrap: wrap;
+        padding: 18px 28px;
+    }
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    nav ul li {
+        margin: 10px 16px 0;
+    }
+    .hero {
+        padding: 0 28px;
+    }
+}
+
+@media (max-width: 600px) {
+    .hero h1 {
+        font-size: 40px;
+    }
+    .card img {
+        height: 220px;
+    }
+}
