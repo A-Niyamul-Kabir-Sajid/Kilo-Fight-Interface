@@ -48,7 +48,7 @@ Kilo-Fight-Interface/
 ├── index.html          # Main HTML file
 ├── styles.css          # Main stylesheet
 ├── demostyles.css      # Additional styles (demo)
-├── images/             # Image assets
+├── images             # Image assets
 │   ├── kiloflight_logo.jpg
 │   ├── About US .jpg
 │   ├── team photos...
